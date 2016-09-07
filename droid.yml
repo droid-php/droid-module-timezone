@@ -1,0 +1,31 @@
+project:
+    name: "droid/timezone"
+    description: "Change the Timezone"
+
+variables:
+    timezone:
+        area: "Etc"
+        zone: "UTC"
+
+tasks:
+    -
+      name: "Copy a file of debconf database entries to set timezone values for the tzdata package."
+      command: "fs:copy"
+      arguments:
+          src: "!{{ mod_path}}/assets/debconf-selections-tzdata.template"
+          dest: "/tmp/debconf-selections-tzdata"
+    -
+      name: "Insert the debconf database tzdata entries"
+      command: "debconfdb:set"
+      arguments:
+          file: "/tmp/debconf-selections-tzdata"
+    -
+      name: "Remove existing timezone configuration files"
+      command: "shell:exec"
+      arguments:
+          command-line: "rm -f /etc/{timezone,localtime}"
+    -
+      name: "Reconfigure the tzdata package"
+      command: "shell:exec"
+      arguments:
+          command-line: "dpkg-reconfigure -f noninteractive tzdata"

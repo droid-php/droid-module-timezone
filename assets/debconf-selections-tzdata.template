@@ -1,0 +1,2 @@
+tzdata tzdata/Areas select {{{ timezone.area }}}
+tzdata tzdata/Zones/{{{ timezone.area }}} select {{{ timezone.zone }}}
