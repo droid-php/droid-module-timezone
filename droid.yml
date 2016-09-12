@@ -17,15 +17,18 @@ tasks:
     -
       name: "Insert the debconf database tzdata entries"
       command: "debconfdb:set"
+      sudo: true
       arguments:
           file: "/tmp/debconf-selections-tzdata"
     -
       name: "Remove existing timezone configuration files"
       command: "shell:exec"
+      sudo: true
       arguments:
           command-line: "rm -f /etc/{timezone,localtime}"
     -
       name: "Reconfigure the tzdata package"
       command: "shell:exec"
+      sudo: true
       arguments:
           command-line: "dpkg-reconfigure -f noninteractive tzdata"
