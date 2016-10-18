@@ -1,6 +1,4 @@
-project:
-    name: "droid/timezone"
-    description: "Change the Timezone"
+description: "Change the Timezone"
 
 variables:
     timezone:

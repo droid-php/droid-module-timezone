@@ -1,4 +1,4 @@
-# Droid Module: droid/timezone
+# Droid Module: timezone
 
 Reconfigure the tzdata platform package to set the time zone. For more
 information on Droid, please see [droidphp.com](http://droidphp.com).
