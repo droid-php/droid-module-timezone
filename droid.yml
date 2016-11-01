@@ -1,6 +1,7 @@
 description: "Change the Timezone"
 
 variables:
+    use_legacy_templating: true
     timezone:
         area: "Etc"
         zone: "UTC"
